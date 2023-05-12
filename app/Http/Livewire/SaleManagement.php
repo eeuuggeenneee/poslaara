@@ -36,8 +36,9 @@ class SaleManagement extends Component
      
 
         if ($this->discountCode == 'gago') {
-            $this->discountAmount = 10;
-            $this->total -= $this->discountAmount;
+            $this->discountAmount = 0.1;
+            $this->net *= $this->discountAmount;
+            $this->total - $this->discountAmount;
         }
 
         $this->discountCode = ''; 
@@ -53,6 +54,8 @@ class SaleManagement extends Component
         $this->total = 0;
         $this->net = 0;
         $this->cashGiven = 0;
+        $this->search = '';
+        
         $this->showCompleteSaleModal = false;
     }
     public function addProduct($productId)
@@ -129,10 +132,6 @@ class SaleManagement extends Component
         $this->discountAmount = 0;
         $this->net = 0;
     }
-
-
-    
-    
 
     public function render()
     {

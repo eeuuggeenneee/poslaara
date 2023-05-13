@@ -107,6 +107,8 @@ class SaleManagement extends Component
    
             $this->lineItems[$key]['quantity'] += 1;
             $this->total += $this->lineItems[$key]['price'];
+            $this->net += $this->lineItems[$key]['price'];
+
         }
     }
 
@@ -119,6 +121,7 @@ class SaleManagement extends Component
     
             $this->lineItems[$key]['quantity'] -= 1;
             $this->total -= $this->lineItems[$key]['price'];
+            $this->net += $this->lineItems[$key]['price'];
         }
     }
     public function removeProduct($productId)

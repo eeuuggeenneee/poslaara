@@ -1,5 +1,5 @@
 <div class="mt-5">
-    <div class="container">
+
         <!-- Search bar -->
         <input type="text" class="form-control" wire:model.debounce.100ms="search"
             placeholder="Search for products..." />
@@ -65,10 +65,10 @@
 
 
         <div class="mt-2">
-
+            @error('discountCode') <span class="error mt-3" style="color: red;">{{ $message }}</span> @enderror
             <div>
                 <input class="form-control" type="text" wire:model="discountCode">
-                @error('discountCode') <span class="error mt-2" style="color: red;">{{ $message }}</span> @enderror
+         
                 <button  class="btn btn-primary mt-2" wire:click="applyDiscount">Apply Discount</button>         
             </div>
         
@@ -113,6 +113,6 @@
 
 
 
-    </div>
+
 
 </div>

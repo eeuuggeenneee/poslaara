@@ -20,6 +20,7 @@ class SaleManagement extends Component
 
     public $discountCode = '';
     public $discountAmount = 0;
+    
 
     public function mount()
     {

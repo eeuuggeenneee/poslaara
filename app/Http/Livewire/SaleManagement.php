@@ -33,16 +33,29 @@ class SaleManagement extends Component
 
     public function applyDiscount()
     {
-     
-
-        if ($this->discountCode == 'gago') {
-            $this->discountAmount = 0.1;
-            $this->net *= $this->discountAmount;
-            $this->total - $this->discountAmount;
+        // Define the valid codes and their discounts
+        $validCodes = [
+            'gago' => 10,
+            'gago2' => 100,
+            // Add more codes here...
+        ];
+    
+        // Validate the discount code
+        if (!array_key_exists($this->discountCode, $validCodes)) {
+            $this->addError('discountCode', 'Invalid discount code.');
+            return;
         }
+    
+        // Apply the discount
+        $this->discountAmount = $validCodes[$this->discountCode];
 
-        $this->discountCode = ''; 
+        $this->total -= $this->discountAmount;
+    
+        $this->resetErrorBag('discountCode');
+        // Reset the discount code input
+        $this->discountCode = '';
     }
+    
 
     public function completeSale()
     {

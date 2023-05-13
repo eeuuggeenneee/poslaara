@@ -65,8 +65,13 @@
 
 
         <div class="mt-2">
-            <input type="text" class="form-control" wire:model="discountCode" placeholder="Enter discount code" />
-            <button class="btn btn-primary mt-2" wire:click="applyDiscount">Apply Discount</button>
+
+            <div>
+                <input class="form-control" type="text" wire:model="discountCode">
+                @error('discountCode') <span class="error mt-2" style="color: red;">{{ $message }}</span> @enderror
+                <button  class="btn btn-primary mt-2" wire:click="applyDiscount">Apply Discount</button>         
+            </div>
+        
         </div>
         <!-- Total -->
         <div class="mt-3">

@@ -133,7 +133,7 @@ class SaleManagement extends Component
         if ($key !== false) {
         
             $this->total -= $this->lineItems[$key]['price'] * $this->lineItems[$key]['quantity'];
-            
+            $this->net -= $this->lineItems[$key]['price'] * $this->lineItems[$key]['quantity'];
        
             unset($this->lineItems[$key]);
 
